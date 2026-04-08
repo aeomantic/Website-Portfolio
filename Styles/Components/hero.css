@@ -12,16 +12,23 @@
     border-radius: 50%;
     width: 6rem;
     height: 6rem;
+    animation: hero-bob 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes hero-bob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
 }
 
 .hero__subtitle {
-    color: var(--clr-gray800);
+    color: var(--clr-gray400);
     font-size: var(--size-base);
     line-height: 0.9;
 }
 
 .hero__title {
-    color: var(--clr-gray400);
+    color: var(--clr-light);
     text-transform: uppercase;
     font-size: var(--size-4xl);
     letter-spacing: -0.05em;
@@ -31,12 +38,51 @@
 .hero__description {
     max-width: 60ch;
     font-size: var(--size-sm);
-    color: var(--clr-gray600);
+    color: var(--clr-gray400);
 }
 
 .hero__btn {
     text-transform: capitalize;
     font-size: var(--size-sm);
+}
+
+/* ─── Typing cursor ─── */
+.hero__cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.82em;
+    background: var(--clr-rose);
+    margin-left: 2px;
+    vertical-align: -0.08em;
+    animation: hero-blink 0.65s step-end infinite;
+}
+
+@keyframes hero-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* After typing finishes: blink 3 more times then disappear */
+.hero__cursor--done {
+    animation:
+        hero-blink     0.65s step-end 3,
+        hero-cursor-out 0.25s ease forwards 1.95s;
+}
+
+@keyframes hero-cursor-out {
+    to { opacity: 0; width: 0; margin: 0; }
+}
+
+/* ─── Elements that fade in after typing completes ─── */
+.hero__fade-later {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.hero__fade-later.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* xs */

@@ -5,9 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <title>Dev server</title>
+    <title>Mohamed Ameer | Portfolio</title>
   </head>
     <body>
+      <!-- Mesh gradient background blobs -->
+      <div class="mesh-bg" aria-hidden="true">
+        <div class="mesh-blob mesh-blob--1"></div>
+        <div class="mesh-blob mesh-blob--2"></div>
+        <div class="mesh-blob mesh-blob--3"></div>
+      </div>
+
       <header class="header container">
         <nav>
           <ul class="header__menu">
@@ -15,17 +22,23 @@
               <a class="header__link" href="#about">About</a>
             </li>
             <li>
-              <a class="header__link" href="#featured">Work</a>
+              <a class="header__link" href="#projects">Projects</a>
+            </li>
+            <li>
+              <a class="header__link" href="#work">Work</a>
             </li>
             <li>
               <a class="header__link" href="#contact">Contact</a>
             </li>
             <li class="header__line"></li>
             <li>
-              <button class="header__sun">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <button class="header__sun" aria-label="Toggle colour theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-                </svg>                
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>
               </button>
             </li>
             <li>
@@ -35,10 +48,11 @@
           <button class="header__bars">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm0 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM15.375 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0ZM7.5 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
-            </svg>                                
+            </svg>
           </button>
         </nav>
       </header>
+
       <!-- Mobile Navigation -->
       <div class="mobile-nav">
         <nav>
@@ -47,17 +61,23 @@
               <a class="mobile-nav__link" href="#about">About</a>
             </li>
             <li>
-              <a class="mobile-nav__link" href="#featured">Work</a>
+              <a class="mobile-nav__link" href="#projects">Projects</a>
+            </li>
+            <li>
+              <a class="mobile-nav__link" href="#work">Work</a>
             </li>
             <li>
               <a class="mobile-nav__link" href="#contact">Contact</a>
             </li>
             <li class="mobile-nav__link-line"></li>
             <li>
-              <button class="mobile-nav__sun">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <button class="mobile-nav__sun" aria-label="Toggle colour theme">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-                </svg>                
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>
               </button>
             </li>
             <li>
@@ -67,283 +87,183 @@
         </nav>
       </div>
       <!-- End of Mobile Navigation -->
+
       <main>
         <section class="hero container">
           <img class="hero__img" src="/pengu.jpeg" alt="Profile picture">
           <h2 class="hero__subtitle">Hi, I'm Ameer 👋</h2>
-          <h1 class="hero__title">FINTECH DEVELOPER & ANALYST.</h1>
-          <p class="hero__description"> <strong>Building bridges between finance and technology.</strong> A developer with expertise in <strong>Fintech</strong>,<strong>financial analysis</strong>, and coding.</p>
+          <h1 class="hero__title">AI & FULL STACK DEVELOPER.</h1>
+          <p class="hero__description">Computer Science student at the University of Wollongong specialising in AI, with a background in fintech and experience in full stack development and backend engineering.</p>
           <a class="hero__btn btn" href="#">Reach Out</a>
         </section>
+
         <section id="about" class="about container section">
-          <div class="about__content">
-            <h2 class="about__title">About</h2>
-            <p class="about__description">Hi, I'm Ameer, 
-              a <strong>Fintech developer</strong> passionate about collaborative environments. 
-              With a keen eye for innovation, I'm dedicated to acquiring valuable skills,
-              fostering teamwork, and driving growth within forward-thinking organizations.</p>
-            <hr class="about__hr" />
-            <h3 class="about_subtitle">Languages</h3>
-            <div class="about__ul-container">
-              <ul class="about__ul">
-                <li class="about__list">Javascript</li>
-                <li class="about__list">Typescript</li>
-                <li class="about__list">HTML</li>
-              </ul>
-              <ul class="about__ul">
-                <li class="about__list">CSS</li>
-                <li class="about__list">ReactJS</li>
-                <li class="about__list">Python</li>
-              </ul>
-            </div>
-          </div>
-          <div class="about__img-wrapper">
-            <img class="about__img" src="/pengu.jpeg" alt="Profile picture" />
-          </div>
-        </section>
-        <section id="featured" class="featured container section">
-          <h3 class="featured__subtitle">Featured project</h3>
-          <div class="featured__wrapper">
-            <h2 class="featured__title">Project Title</h2>
-            <a class="featured__link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.757a3.75 3.75 0 0 0 0-5.304Zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.757a3.75 3.75 0 1 0 5.304 5.304l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1Z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-          <p class="featured__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque volutpat aliquam. 
-            Duis congue dolor sit amet orci volutpat porttitor. Mauris in cursus dui. Donec mattis pulvinar euismod. 
-            Nulla et lacus ultricies, laoreet orci non, scelerisque urna. Nullam dapibus metus eu urna maximus, lacinia fermentum magna fermentum. 
-            Nam non dui dignissim, ornare ligula eu, pellentesque lacus. Morbi nec pulvinar risus. 
-            Praesent at iaculis risus, at blandit nulla. Integer hendrerit ipsum feugiat leo ultrices, ac scelerisque purus semper. 
-            Quisque sed odio interdum, consequat arcu ac, semper urna. Nullam vitae enim at ante pulvinar pellentesque.
-          </p>
-          <div class="featured__info-container">
-            <div>
-              <h3 class="featured__label">Languages used</h3>
-              <ul class="featured__tech-stack">
-                <li class="featured__info">Typescript</li>
-                <li class="featured__info">ReactJS</li>
-                <li class="featured__info">Python</li>
-                <li class="featured__info">TailwindCSS</li>
-                <li class="featured__info">SQL</li>
-                <li class="featured__info"></li>
-                <li class="featured__info"></li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="featured__label">Project type</h3>
-              <p class="featured__info">Fullstack-Jamstack</p>
-            </div>
-            <div>
-              <h3 class="featured__label"></h3>
-              <p class="featured__info">December 2022 - present</p>
-            </div>
-          </div>
-          <div class="featured__img-container">   
-            <div class="featured__img-wrapper">
-              <img src="/pengu001.jpeg" alt="Portfolio Website 001">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu002.jpeg" alt="Portfolio Website 002">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu003.jpeg" alt="Portfolio Website 003">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu004.jpeg" alt="Portfolio Website 004">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu005.jpeg" alt="Portfolio Website 005">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu006.jpeg" alt="Portfolio Website 006">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu007.jpeg" alt="Portfolio Website 007">
-            </div>
-            <div class="featured__img-wrapper">
-              <img src="/pengu008.jpeg" alt="Portfolio Website 008">
+          <div class="about__panel">
+            <p class="about__label">About me</p>
+            <div class="about__inner">
+              <div class="about__content">
+                <h2 class="about__title">About</h2>
+                <p class="about__description">Hi, I'm Ameer. I study Computer Science at the University of Wollongong, majoring in Artificial Intelligence and Cyber Security. I hold a Diploma in Financial Business Informatics from Temasek Polytechnic. I've built AI-powered applications at hackathons and completed internships in web development and project management.</p>
+                <hr class="about__hr" />
+                <h3 class="about_subtitle">Languages</h3>
+                <div class="about__ul-container">
+                  <ul class="about__ul">
+                    <li class="about__list">Python</li>
+                    <li class="about__list">JavaScript</li>
+                    <li class="about__list">TypeScript</li>
+                  </ul>
+                  <ul class="about__ul">
+                    <li class="about__list">Java</li>
+                    <li class="about__list">SQL</li>
+                    <li class="about__list">HTML/CSS</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="about__img-wrapper">
+                <img class="about__img" src="/pengu.jpeg" alt="Profile picture" />
+              </div>
             </div>
           </div>
         </section>
-        <section class="work container section">
-          <h2 class="work__title">Projects</h2>
+
+        <!-- ── Projects ── -->
+        <section id="projects" class="projects container section">
+          <div class="projects__header">
+            <p class="projects__label">Selected work</p>
+            <h2 class="projects__title">Projects</h2>
+            <p class="projects__desc">AI applications and tools built at hackathons.</p>
+          </div>
+
+          <div class="projects__grid">
+
+            <article class="projects__card reveal" data-project="msig">
+              <div class="projects__card-glow"></div>
+              <div class="projects__card-inner">
+                <div class="projects__card-top">
+                  <p class="projects__tag">SingHacks 2025</p>
+                  <h3 class="projects__name">MSIG Travel Assistant</h3>
+                </div>
+                <p class="projects__summary">A generative AI assistant for travel insurance queries. Uses LangChain with Groq's Llama 3 for multi-turn conversations and intent classification, with a FastAPI backend for policy comparisons.</p>
+                <div class="projects__chips">
+                  <span class="projects__chip">LangChain</span>
+                  <span class="projects__chip">Groq Llama 3</span>
+                  <span class="projects__chip">FastAPI</span>
+                  <span class="projects__chip">Streamlit</span>
+                </div>
+                <button class="btn projects__view-btn" data-project="msig">View More</button>
+              </div>
+            </article>
+
+            <article class="projects__card projects__card--rose reveal" data-project="surebo">
+              <div class="projects__card-glow"></div>
+              <div class="projects__card-inner">
+                <div class="projects__card-top">
+                  <p class="projects__tag projects__tag--rose">HackoMania 2026</p>
+                  <h3 class="projects__name">SureBO</h3>
+                </div>
+                <p class="projects__summary">AI-powered misinformation detector covering Singapore's four official languages. A RAG pipeline draws from 20+ verified government and news sources with WhatsApp voice note support.</p>
+                <div class="projects__chips">
+                  <span class="projects__chip projects__chip--rose">Next.js</span>
+                  <span class="projects__chip projects__chip--rose">GPT-4o</span>
+                  <span class="projects__chip projects__chip--rose">LangChain</span>
+                  <span class="projects__chip projects__chip--rose">Supabase</span>
+                </div>
+                <button class="btn projects__view-btn projects__view-btn--rose" data-project="surebo">View More</button>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ── Work / Experience ── -->
+        <section id="work" class="work container section">
+          <h2 class="work__title">Work</h2>
           <p class="work__description">
-            Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-            Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-            Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-            Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-            Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
+            Roles and contributions across internships and student organisations.
           </p>
-          <div class="work__container">
 
-            <!-- Project 1 -->
-             <h3 class="work__project-title">Pengu Project 1</h3>
-             <div class="work__img-wrapper work__image1">
-              <img src="/penguproject001.jpeg" alt="Pengu Project 001">
-             </div>
-             <div class="work__project work__content1">
-              <h3 class="work__project-subtitle">Pengu Project 1</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
-             <!-- Project 2 -->
-             <h3 class="work__project-title">Pengu Project 2</h3>
-             <div class="work__img-wrapper work__image2">
-              <img src="/penguproject002.jpeg" alt="Pengu Project 002">
-             </div>
-             <div class="work__project work__content2">
-              <h3 class="work__project-subtitle">Pengu Project 2</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
-             <!-- Project 3 -->
-             <h3 class="work__project-title">Pengu Project 3</h3>
-             <div class="work__img-wrapper work__image3">
-              <img src="/penguproject003.jpeg" alt="Pengu Project 003">
-             </div>
-             <div class="work__project work__content3">
-              <h3 class="work__project-subtitle">Pengu Project 3</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
-             <!-- Project 4 -->
-             <h3 class="work__project-title">Pengu Project 4</h3>
-             <div class="work__img-wrapper work__image4">
-              <img src="/penguproject004.jpeg" alt="Pengu Project 004">
-             </div>
-             <div class="work__project work__content4">
-              <h3 class="work__project-subtitle">Pengu Project 4</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
-             <!-- Project 5 -->
-             <h3 class="work__project-title">Pengu Project 5</h3>
-             <div class="work__img-wrapper work__image5">
-              <img src="/penguproject005.jpeg" alt="Pengu Project 005">
-             </div>
-             <div class="work__project work__content5">
-              <h3 class="work__project-subtitle">Pengu Project 5</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
-             <!-- Project 6 -->
-             <h3 class="work__project-title">Pengu Project 6</h3>
-             <div class="work__img-wrapper work__image6">
-              <img src="/penguproject006.jpeg" alt="Pengu Project 006">
-             </div>
-             <div class="work__project work__content6">
-              <h3 class="work__project-subtitle">Pengu Project 6</h3>
-               <p class="work__project-description1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nulla efficitur erat malesuada, quis elementum diam cursus. 
-                Nam id justo vitae nulla pellentesque tincidunt sit amet vitae erat. Duis rutrum id massa eget posuere. 
-                Donec rhoncus feugiat condimentum. Etiam sed sapien eu risus pulvinar rhoncus et sed nisi. 
-                Mauris dignissim erat eleifend placerat gravida. Proin ipsum orci, finibus venenatis ultricies a, rutrum ac tellus. 
-                Ut vehicula dignissim feugiat. Nam sed est ornare, molestie purus a, blandit eros.
-              </p>
-               <p class="work__project-description2">
-                Donec dapibus, quam nec semper vestibulum, ligula metus tempus orci, vitae lobortis ex justo vitae quam. 
-                Praesent pulvinar blandit blandit. Aenean maximus ullamcorper risus et posuere. Nulla ac cursus dolor, vitae congue sem. 
-                Vivamus sed lacus justo. Aenean sapien magna, pretium eget mauris eu, maximus egestas orci. Suspendisse sed posuere lorem. 
-                Maecenas molestie scelerisque elit ut lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec sodales mollis turpis nec volutpat. Pellentesque sit amet maximus justo. 
-                Vivamus scelerisque gravida velit, quis tristique orci interdum volutpat.
-               </p>
-               <a class="btn work_project-btn" href="#">Pengu</a>
-             </div>
+          <div class="snake">
+
+            <div class="snake__item snake__item--odd">
+              <div class="snake__content">
+                <p class="snake__tag">SIM IT Club</p>
+                <h3 class="snake__heading">Subcommittee Member</h3>
+                <p class="snake__body">Facilitated the SIMITC GitHub Workshop Series from October 2025, guiding groups of up to 5 participants through hands-on Git and GitHub sessions. Currently developing the backend for a campus app with real-time ETA tracking for study spot discovery.</p>
+              </div>
+            </div>
+
+            <div class="snake__item snake__item--even">
+              <div class="snake__content">
+                <p class="snake__tag">Singapore Armed Forces</p>
+                <h3 class="snake__heading">Security Trooper</h3>
+                <p class="snake__body">Served from May 2023 to May 2025. Managed daily access control for 100+ personnel and vehicles, maintained accurate entry logs, and assisted in training 10+ recruits on standard operating procedures. Identified operational gaps that reduced security incidents.</p>
+              </div>
+            </div>
+
+            <div class="snake__item snake__item--odd">
+              <div class="snake__content">
+                <p class="snake__tag">FirstCom Solutions</p>
+                <h3 class="snake__heading">Project Manager Intern</h3>
+                <p class="snake__body">Contributed to 2+ e-commerce projects from November 2022 to January 2023, identifying bottlenecks that cut delivery timelines by 20%. Managed stakeholder communication and aligned client expectations, tracking progress via Trello and Jira.</p>
+              </div>
+            </div>
+
+            <div class="snake__item snake__item--even">
+              <div class="snake__content">
+                <p class="snake__tag">FirstCom Solutions</p>
+                <h3 class="snake__heading">Web Designer Intern</h3>
+                <p class="snake__body">Designed and built responsive websites with HTML and CSS from July to August 2022, using Wix to deliver client-ready solutions. Collaborated with the design team on UI/UX improvements across multiple client sites.</p>
+              </div>
+            </div>
 
           </div>
         </section>
+
         <section id="contact" class="contact container section">
-          <h2 class="contact__title">Get In Contact</h2>
-          <p class="contact__description">
-            Looking to bring innovative solutions to the intersection of finance, business, and technology! 
-            If you’re seeking a motivated Financial Business Informatics graduate with skills in data analysis, process optimization, or programming, I’d love to hear from you. 
-            Let’s connect and explore how I can contribute to your team or project.
-          </p>
-          <a 
-             class="contact__btn btn" 
-             href="mailto:mohamedameer0025@gmail.com"
-             target="_blank"
-          >Reach Out</a>
+          <div class="contact__panel">
+            <p class="contact__label">Get in touch</p>
+            <h2 class="contact__title">Get In Contact</h2>
+            <p class="contact__description">
+              Currently open to internship and junior developer roles in AI development or full stack engineering. Feel free to reach out if you have an opportunity to discuss.
+            </p>
+            <a
+               class="contact__btn btn"
+               href="mailto:mohamedameer0025@gmail.com"
+               target="_blank"
+            >Reach Out</a>
+          </div>
         </section>
       </main>
+
       <footer class="footer container section">
         <h3 class="footer__title">-- Mohamed Ameer --</h3>
       </footer>
+
+      <!-- ── Project detail modal ── -->
+      <div class="modal-overlay" id="projectModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+          <button class="modal__close" id="modalClose" aria-label="Close modal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <div class="modal__body">
+            <p class="modal__tag" id="modalTag"></p>
+            <h2 class="modal__title" id="modalTitle"></h2>
+            <p class="modal__desc" id="modalDesc"></p>
+            <div class="modal__section" id="modalTechSection">
+              <h3 class="modal__section-label">Tech Stack</h3>
+              <div class="modal__chips" id="modalChips"></div>
+            </div>
+            <div class="modal__section" id="modalHighlightsSection">
+              <h3 class="modal__section-label">Highlights</h3>
+              <ul class="modal__list" id="modalHighlights"></ul>
+            </div>
+            <a class="btn modal__github" id="modalGithub" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
       <script type="module" src="./src/main.js"></script>
     </body>
 
