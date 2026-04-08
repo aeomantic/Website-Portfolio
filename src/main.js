@@ -21,23 +21,18 @@ mobileNav();
 
     const observer = new IntersectionObserver(
         (entries) => {
-            entries.forEach((entry, _, obs) => {
+            entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-
-                // Find siblings in the same parent to stagger them
-                const siblings = Array.from(
-                    entry.target.parentElement.querySelectorAll('.reveal:not(.is-revealed)')
-                );
-                const idx = siblings.indexOf(entry.target);
-
-                setTimeout(() => {
-                    entry.target.classList.add('is-revealed');
-                }, idx * 130);
-
-                obs.unobserve(entry.target);
+                // Reveal all siblings in the same grid at once
+                entry.target.parentElement
+                    .querySelectorAll('.reveal')
+                    .forEach(el => {
+                        el.classList.add('is-revealed');
+                        observer.unobserve(el);
+                    });
             });
         },
-        { threshold: 0.08 }
+        { threshold: 0 }
     );
 
     items.forEach(el => observer.observe(el));
