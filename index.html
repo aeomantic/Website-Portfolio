@@ -136,6 +136,43 @@
 
           <div class="projects__grid">
 
+            <article class="projects__card reveal" data-project="safewatch">
+              <div class="projects__card-glow"></div>
+              <div class="projects__card-inner">
+                <div class="projects__card-top">
+                  <p class="projects__tag">StraightUp Hackathon 2026</p>
+                  <h3 class="projects__name">SafeWatch</h3>
+                </div>
+                <p class="projects__summary">A LangGraph multi-agent pipeline converts noisy Reddit posts into verified Singapore crime incidents. Real-time Next.js dashboard with React-Leaflet clustering and Supabase Realtime, processing incidents with no human in the loop.</p>
+                <div class="projects__chips">
+                  <span class="projects__chip">LangGraph</span>
+                  <span class="projects__chip">GPT-4o-mini</span>
+                  <span class="projects__chip">FastAPI</span>
+                  <span class="projects__chip">pgvector</span>
+                  <span class="projects__chip">Next.js</span>
+                </div>
+                <button class="btn projects__view-btn" data-project="safewatch">View More</button>
+              </div>
+            </article>
+
+            <article class="projects__card projects__card--rose reveal" data-project="itcsimplify">
+              <div class="projects__card-glow"></div>
+              <div class="projects__card-inner">
+                <div class="projects__card-top">
+                  <p class="projects__tag projects__tag--rose">SIM IT Club ITCamp 2026</p>
+                  <h3 class="projects__name">ITC-SIMplify</h3>
+                </div>
+                <p class="projects__summary">Award-winning campus study spot finder for SIM students. Features a gamification pipeline with 100 progression levels, real-time session tracking, and an AI chatbot, backed by a Supabase data layer across 13+ tables.</p>
+                <div class="projects__chips">
+                  <span class="projects__chip projects__chip--rose">Next.js 15</span>
+                  <span class="projects__chip projects__chip--rose">TypeScript</span>
+                  <span class="projects__chip projects__chip--rose">Supabase</span>
+                  <span class="projects__chip projects__chip--rose">GPT-4o-mini</span>
+                </div>
+                <button class="btn projects__view-btn projects__view-btn--rose" data-project="itcsimplify">View More</button>
+              </div>
+            </article>
+
             <article class="projects__card reveal" data-project="msig">
               <div class="projects__card-glow"></div>
               <div class="projects__card-inner">
@@ -259,7 +296,10 @@
               <h3 class="modal__section-label">Highlights</h3>
               <ul class="modal__list" id="modalHighlights"></ul>
             </div>
-            <a class="btn modal__github" id="modalGithub" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <div class="modal__actions">
+              <a class="btn modal__github" id="modalGithub" href="#" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              <a class="btn modal__demo" id="modalDemo" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            </div>
           </div>
         </div>
       </div>

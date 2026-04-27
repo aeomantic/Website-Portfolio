@@ -18,7 +18,10 @@
 
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: -0.05em;
@@ -26,7 +29,7 @@
     color: var(--clr-light);
     padding: 0.5em 1em;
     border-radius: 6px;
-    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.5), 0 6px 6px rgba(225, 29, 72, 0.5), 0 0 100px -10px var(--clr-rose); 
+    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.5), 0 6px 6px rgba(225, 29, 72, 0.5), 0 0 100px -10px var(--clr-rose);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -39,8 +42,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .section {

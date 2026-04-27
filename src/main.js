@@ -139,6 +139,37 @@ mobileNav();
 // ── Project detail modal ──────────────────────────────────────
 (function projectModal() {
     const PROJECTS = {
+        safewatch: {
+            tag:       'StraightUp Hackathon 2026',
+            accent:    'indigo',
+            title:     'SafeWatch',
+            desc:      'SafeWatch is an AI-powered community crime intelligence platform built at the StraightUp Hackathon 2026. A LangGraph multi-agent pipeline (Crawler → Cleaner → Classifier → Decider) with inter-agent feedback loops processes noisy Reddit posts and converts them into verified Singapore crime incidents with no human in the loop.\n\nThe backend uses a normalised PostgreSQL schema with pgvector IVFFlat indexes, RLS policies, and an optimistic row-locking incident queue enabling race-condition-free distributed agent processing. A real-time Next.js dashboard with React-Leaflet map clustering and Supabase Realtime surfaces community-reported incidents by severity.',
+            tech:      ['Python', 'FastAPI', 'LangGraph', 'GPT-4o-mini', 'Supabase', 'Next.js', 'pgvector'],
+            highlights: [
+                'LangGraph multi-agent pipeline (Crawler → Cleaner → Classifier → Decider) with inter-agent feedback loops',
+                'Normalised PostgreSQL schema with pgvector IVFFlat indexes and RLS policies',
+                'Optimistic row-locking incident queue enabling race-condition-free distributed processing',
+                'Real-time React-Leaflet map with severity colour coding and Supabase Realtime updates',
+            ],
+            github: 'https://github.com/Vedha-Krishna/SafeWatch',
+            demo:   'https://safewatch-flame.vercel.app',
+        },
+        itcsimplify: {
+            tag:       'SIM IT Club ITCamp 2026',
+            accent:    'rose',
+            title:     'ITC-SIMplify',
+            desc:      'ITC-SIMplify is a campus study spot finder built for the SIM IT Club ITCamp 2026. Students can find available study spots, connect with study buddies, check real-time ETAs, and use an AI chatbot powered by GPT-4o-mini. Awarded the Design Excellence Award at the SIM IT Club ITCamp Project Showcase (Apr 2026).\n\nThe platform is backed by a centralised Supabase data layer covering 13+ database tables. A gamification pipeline built with Supabase RPC tracks points and EXP across 100 progression levels, with real-time session tracking and streak systems across 6 feature modules.',
+            tech:      ['Next.js 15', 'TypeScript', 'Supabase', 'PostgreSQL', 'GPT-4o-mini'],
+            highlights: [
+                'Awarded Design Excellence Award at SIM IT Club ITCamp Project Showcase (Apr 2026)',
+                'Centralised Supabase data layer in TypeScript covering 13+ database tables',
+                'Gamification pipeline with configurable cooldown rules across 100 progression levels',
+                'Real-time session tracking and streak system across 6 feature modules',
+                'AI chatbot powered by GPT-4o-mini',
+            ],
+            github: 'https://github.com/AlexBearBear0319/ITC-SIMplify',
+            demo:   'https://itc-simplify.vercel.app/auth/login',
+        },
         msig: {
             tag:       'SingHacks 2025',
             accent:    'indigo',
@@ -152,6 +183,7 @@ mobileNav();
                 'Intent classification across 10+ policy categories',
             ],
             github: 'https://github.com/MuhammadHasifF/SingHacks2025',
+            demo:   'https://msigtravelassistant.streamlit.app/',
         },
         surebo: {
             tag:       'HackoMania 2026',
@@ -167,6 +199,7 @@ mobileNav();
                 'Real-time source citation with every verdict',
             ],
             github: 'https://github.com/AlexBearBear0319/surebo-check',
+            demo:   'https://surebo-check.vercel.app',
         },
     };
 
@@ -178,6 +211,7 @@ mobileNav();
     const chipsEl   = document.getElementById('modalChips');
     const listEl    = document.getElementById('modalHighlights');
     const githubEl  = document.getElementById('modalGithub');
+    const demoEl    = document.getElementById('modalDemo');
 
     if (!overlay) return;
 
@@ -210,6 +244,14 @@ mobileNav();
 
         // GitHub
         githubEl.href = p.github;
+
+        // Demo (only shown when a demo URL is provided)
+        if (p.demo) {
+            demoEl.href = p.demo;
+            demoEl.classList.add('is-visible');
+        } else {
+            demoEl.classList.remove('is-visible');
+        }
 
         overlay.setAttribute('aria-hidden', 'false');
         overlay.classList.add('is-open');
