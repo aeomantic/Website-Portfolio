@@ -37,7 +37,7 @@ export function renderNav(c) {
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav container" aria-label="Primary">
-      <a class="site-nav__brand" href="#top" aria-label="${esc(c.site.name)} — back to top">
+      <a class="site-nav__brand" href="#top" aria-label="MA — ${esc(c.site.name)}, back to top">
         <span class="site-nav__brand-mark" aria-hidden="true">MA</span>
       </a>
       <ul class="site-nav__menu">

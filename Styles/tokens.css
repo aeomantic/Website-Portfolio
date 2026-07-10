@@ -11,7 +11,7 @@
   --border-strong: rgba(255, 255, 255, 0.18);
   --text: #f4f4f5;
   --text-muted: #b0b0b8;
-  --text-faint: #7c7c85;
+  --text-faint: #8b8b95; /* ≥4.5:1 on raised surfaces */
   --accent: #818cf8;
   --accent-strong: #4f46e5;
   --accent-soft: rgba(129, 140, 248, 0.13);
@@ -66,7 +66,7 @@
   --border-strong: rgba(17, 17, 20, 0.2);
   --text: #17171b;
   --text-muted: #4d4d56;
-  --text-faint: #75757e;
+  --text-faint: #686871; /* ≥4.5:1 on white cards */
   --accent: #4f46e5;
   --accent-strong: #4338ca;
   --accent-soft: rgba(79, 70, 229, 0.09);
