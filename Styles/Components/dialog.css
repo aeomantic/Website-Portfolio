@@ -1,0 +1,78 @@
+/* ─── Case-study dialog (native <dialog>) ─── */
+.case-study {
+  margin: auto; /* the global reset removes UA centering */
+  width: min(680px, calc(100vw - 2rem));
+  max-height: min(85vh, 52rem);
+  padding: 0;
+  background: var(--bg-raised);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.case-study::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.case-study[open] {
+  animation: dialog-in 0.25s ease;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.case-study__inner {
+  position: relative;
+  padding: clamp(var(--space-3), 5vw, var(--space-5));
+}
+
+.case-study__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+.case-study__title {
+  font-size: var(--text-h2);
+  margin-block: var(--space-05) var(--space-2);
+}
+
+.case-study__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: var(--space-3) 0 var(--space-1);
+}
+
+.case-study__text {
+  color: var(--text-muted);
+}
+
+.case-study__highlights {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.case-study__highlights li::marker {
+  color: var(--accent);
+}
+
+.case-study__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
