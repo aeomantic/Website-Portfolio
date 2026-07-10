@@ -1,274 +1,65 @@
-/* ─── Work section header ─── */
-.work {
-    text-align: center;
+/* ─── Work — vertical timeline ─── */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 46rem;
 }
 
-.work__title {
-    color: var(--clr-light);
-    font-size: var(--size-2xl);
-    letter-spacing: -0.03em;
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-soft), var(--border));
 }
 
-.work__description {
-    max-width: 62ch;
-    margin: 1rem auto 0;
-    color: var(--clr-gray400);
-    font-size: var(--size-sm);
+.timeline__item {
+  position: relative;
+  padding: 0 0 var(--space-6) var(--space-5);
 }
 
-/* ─── Snake container ─── */
-.snake {
-    position: relative;
-    max-width: 860px;
-    margin: 2.5rem auto 0;
+.timeline__item:last-child {
+  padding-bottom: 0;
 }
 
-/* ─── Each snake step ─────────────────────────────────────────
-   Flexbox row: one half holds the content card, the other is
-   left empty so the arch ::before is visible inside it.
-   No vertical gap — items must touch for the snake to connect.
-──────────────────────────────────────────────────────────────── */
-/* Descending z-index: each item stacks above all subsequent ones
-   so the connector dot at the bottom always paints over the next
-   item's arch border that starts at the same y position.          */
-.snake__item:nth-child(1) { z-index: 10; }
-.snake__item:nth-child(2) { z-index: 9;  }
-.snake__item:nth-child(3) { z-index: 8;  }
-.snake__item:nth-child(4) { z-index: 7;  }
-.snake__item:nth-child(5) { z-index: 6;  }
-.snake__item:nth-child(6) { z-index: 5;  }
-
-.snake__item {
-    position: relative;
-    display: flex;
-    min-height: 220px;
+.timeline__marker {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
-/* ─── Arch shape via ::before ─────────────────────────────────
-   Odd  → D-shape: arch bulges RIGHT, open edge at left = 50%
-   Even → C-shape: arch bulges LEFT,  open edge at right = 50%
-──────────────────────────────────────────────────────────────── */
-.snake__item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 0;
+.timeline__period {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: var(--space-05);
 }
 
-.snake__item--odd::before {
-    left: 50%;
-    right: 0;
-    border-top: 2px solid var(--clr-indigo);
-    border-right: 2px solid var(--clr-indigo);
-    border-bottom: 2px solid var(--clr-indigo);
-    border-left: none;
-    border-radius: 0 240px 240px 0;
-    background: rgba(79, 70, 229, 0.04);
+.timeline__role {
+  font-size: var(--text-h3);
 }
 
-.snake__item--even::before {
-    left: 0;
-    right: 50%;
-    border-top: 2px solid var(--clr-rose);
-    border-left: 2px solid var(--clr-rose);
-    border-bottom: 2px solid var(--clr-rose);
-    border-right: none;
-    border-radius: 240px 0 0 240px;
-    background: rgba(225, 29, 72, 0.04);
+.timeline__org {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: var(--space-05);
 }
 
-/* ─── Connector node at each snake turn ─── */
-.snake__item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: -9px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    z-index: 3;
-}
-
-.snake__item--odd:not(:last-child)::after {
-    background: var(--clr-indigo);
-    box-shadow: 0 0 0 5px rgba(79, 70, 229, 0.2), 0 0 18px rgba(79, 70, 229, 0.35);
-    animation: dot-pulse-indigo 2.4s ease-out infinite;
-}
-
-.snake__item--even:not(:last-child)::after {
-    background: var(--clr-rose);
-    box-shadow: 0 0 0 5px rgba(225, 29, 72, 0.2), 0 0 18px rgba(225, 29, 72, 0.35);
-    animation: dot-pulse-rose 2.4s ease-out infinite;
-}
-
-/* Stagger even items so both pulses don't fire together */
-.snake__item--even:not(:last-child)::after {
-    animation-delay: 1.2s;
-}
-
-@keyframes dot-pulse-indigo {
-    0%   { box-shadow: 0 0 0 0px  rgba(79, 70, 229, 0.55), 0 0 0 0px  rgba(79, 70, 229, 0.25); }
-    60%  { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0),    0 0 0 20px rgba(79, 70, 229, 0);    }
-    100% { box-shadow: 0 0 0 0px  rgba(79, 70, 229, 0.55), 0 0 0 0px  rgba(79, 70, 229, 0.25); }
-}
-
-@keyframes dot-pulse-rose {
-    0%   { box-shadow: 0 0 0 0px  rgba(225, 29, 72, 0.55), 0 0 0 0px  rgba(225, 29, 72, 0.25); }
-    60%  { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0),    0 0 0 20px rgba(225, 29, 72, 0);    }
-    100% { box-shadow: 0 0 0 0px  rgba(225, 29, 72, 0.55), 0 0 0 0px  rgba(225, 29, 72, 0.25); }
-}
-
-/* ─── Content card ─── */
-.snake__content {
-    position: relative;
-    z-index: 1;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    text-align: left;
-}
-
-/* Odd: push content into the RIGHT half (inside the D-arch) */
-.snake__item--odd .snake__content {
-    margin-left: auto;
-    padding: 2.5rem 2.5rem 2.5rem 1.5rem;
-}
-
-/* Even: content stays in the LEFT half (inside the C-arch), right-aligned to mirror odd */
-.snake__item--even .snake__content {
-    padding: 2.5rem 2.5rem 2.5rem 1.5rem;
-    text-align: right;
-    align-items: flex-end;
-}
-
-/* ─── Card elements ─── */
-.snake__tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.3rem 0.75rem;
-    border-radius: 9999px;
-    font-size: var(--size-xs);
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.snake__item--odd .snake__tag {
-    border: 1px solid rgba(79, 70, 229, 0.35);
-    background: rgba(79, 70, 229, 0.1);
-    color: var(--clr-indigo);
-}
-
-.snake__item--even .snake__tag {
-    border: 1px solid rgba(225, 29, 72, 0.35);
-    background: rgba(225, 29, 72, 0.1);
-    color: var(--clr-rose);
-}
-
-.snake__heading {
-    color: var(--clr-light);
-    font-size: var(--size-xl);
-    line-height: 1.15;
-}
-
-.snake__body {
-    margin: 0;
-    color: var(--clr-gray400);
-    font-size: var(--size-sm);
-    line-height: 1.7;
-}
-
-.snake__btn {
-    font-size: var(--size-sm);
-    margin-top: 0.25rem;
-}
-
-/* ─── Scroll reveal (IntersectionObserver adds .snake__item--visible) ─── */
-.snake__item {
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.snake__item--odd {
-    transform: translateX(52px);
-}
-
-.snake__item--even {
-    transform: translateX(-52px);
-}
-
-.snake__item--visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* ─── Mobile: simple stacked cards ─── */
-@media (max-width: 639px) {
-    .snake__item::before,
-    .snake__item::after {
-        display: none;
-    }
-
-    .snake__item {
-        display: block;
-        margin-bottom: 1.25rem;
-        min-height: unset;
-    }
-
-    .snake__item--odd .snake__content,
-    .snake__item--even .snake__content {
-        width: 100%;
-        margin-left: 0;
-        padding: 1.5rem;
-        border-radius: 16px;
-        border: 1px solid rgba(156, 163, 175, 0.12);
-        background: rgba(31, 41, 55, 0.5);
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .snake__item--odd .snake__content {
-        border-left: 3px solid var(--clr-indigo);
-    }
-
-    .snake__item--even .snake__content {
-        border-left: 3px solid var(--clr-rose);
-    }
-}
-
-/* ─── Tablet: tighter snake content padding ─── */
-@media (min-width: 640px) and (max-width: 1023px) {
-    .snake__item--odd .snake__content,
-    .snake__item--even .snake__content {
-        padding: 1.75rem 1.5rem;
-    }
-}
-
-/* ─── Responsive typography ─── */
-@media (min-width: 475px) {
-    .work__title { font-size: var(--size-3xl); }
-    .work__description { font-size: var(--size-base); }
-}
-
-@media (min-width: 768px) {
-    .snake__heading { font-size: var(--size-2xl); }
-    .snake__body { font-size: var(--size-base); }
-}
-
-@media (min-width: 1024px) {
-    .work__title { font-size: var(--size-4xl); }
-    .work__description { font-size: var(--size-lg); }
-}
-
-@media (min-width: 1280px) {
-    .work__title { font-size: var(--size-5xl); }
-    .work__description { margin-top: 1.25rem; font-size: var(--size-xl); }
-    .snake__heading { font-size: var(--size-3xl); }
-    .snake__body { font-size: var(--size-lg); }
-    .snake { margin-top: 3.5rem; }
+.timeline__body {
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+  max-width: 60ch;
 }
