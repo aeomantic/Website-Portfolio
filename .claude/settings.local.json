@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ls c:/Users/User/WebPortfolio/Website-Portfolio/public/*.pdf)"
-    ]
-  }
-}
