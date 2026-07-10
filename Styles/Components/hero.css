@@ -1,180 +1,45 @@
+/* ─── Hero — oversized type, entrance handled by GSAP ─── */
 .hero {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100svh - var(--nav-height));
+  padding-block: var(--space-8);
 }
 
-.hero__img {
-    border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-    animation: hero-bob 4s ease-in-out infinite;
-    will-change: transform;
+/* Initial hidden state for the GSAP entrance — only when JS is on
+   and the user allows motion */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-hero] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
 }
 
-@keyframes hero-bob {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-10px); }
-}
-
-.hero__subtitle {
-    color: var(--clr-gray400);
-    font-size: var(--size-base);
-    line-height: 0.9;
+.hero__greeting {
+  font-size: var(--text-sm);
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 
 .hero__title {
-    color: var(--clr-light);
-    text-transform: uppercase;
-    font-size: var(--size-4xl);
-    letter-spacing: -0.05em;
-    line-height: 1.05;
-}
-
-@media (min-width: 1024px) {
-    .hero__title {
-        line-height: 0.9;
-    }
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-block: var(--space-2) var(--space-3);
+  max-width: 16ch;
 }
 
 .hero__description {
-    max-width: 60ch;
-    font-size: var(--size-sm);
-    color: var(--clr-gray400);
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  max-width: 38rem;
 }
 
-.hero__btn {
-    text-transform: capitalize;
-    font-size: var(--size-sm);
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
 }
-
-/* ─── Typing cursor ─── */
-.hero__cursor {
-    display: inline-block;
-    width: 2px;
-    height: 0.82em;
-    background: var(--clr-rose);
-    margin-left: 2px;
-    vertical-align: -0.08em;
-    animation: hero-blink 0.65s step-end infinite;
-}
-
-@keyframes hero-blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-}
-
-/* After typing finishes: blink 3 more times then disappear */
-.hero__cursor--done {
-    animation:
-        hero-blink     0.65s step-end 3,
-        hero-cursor-out 0.25s ease forwards 1.95s;
-}
-
-@keyframes hero-cursor-out {
-    to { opacity: 0; width: 0; margin: 0; }
-}
-
-/* ─── Elements that fade in after typing completes ─── */
-.hero__fade-later {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.hero__fade-later.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* xs */
-@media (min-width: 475px) {
-    .hero {
-        gap: 1.5rem;
-    }
-    
-    .hero__img {
-        width: 6.5rem;
-        height: 6.5rem;
-    }
-    
-    .hero__subtitle {
-        font-size: var(--size-lg);
-    }
-    
-    .hero__title {
-        font-size: var(--size-5xl);
-    }
-    
-    .hero__description {
-        font-size: var(--size-base);
-    }
-    
-    .hero__btn {
-        font-size: var(--size-base);
-    }
-}
-
-/* sm */
-/* @media (min-width: 640px) {} */
-
-/* md */
-/* @media (min-width: 768px) {} */
-
-/* lg */
-@media (min-width: 1024px) {
-    .hero__img {
-        width: 8rem;
-        height: 8rem;
-    }
-    
-    .hero__subtitle {
-        font-size: var(--size-2xl);
-    }
-    
-    .hero__title {
-        font-size: var(--size-7xl);
-    }
-    
-    .hero__description {
-        font-size: var(--size-lg);
-    }
-    
-    .hero__btn {
-        font-size: var(--size-lg);
-    }
-}
-
-/* xl */
-@media (min-width: 1280px) {
-    .hero{
-        gap: 2rem;
-    }
-    .hero__img {
-        width: 10rem;
-        height: 10rem;
-    }
-    
-    .hero__subtitle {
-        font-size: var(--size-4xl);
-    }
-    
-    .hero__title {
-        font-size: var(--size-9xl);
-    }
-    
-    .hero__description {
-        font-size: var(--size-xl);
-    }
-    
-    .hero__btn {
-        font-size: var(--size-xl);
-    }
-}
-
-/* 2xl */
-/* @media (min-width: 1536px) {} */
