@@ -9,6 +9,7 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { scramble } from './decode.js';
 
 export default function initMotion() {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -53,6 +54,14 @@ export default function initMotion() {
     stagger: 0.12,
     delay: 0.1,
   });
+
+  // 1b. DOSSIER decode: nav links, then the hero title resolves under it
+  document
+    .querySelectorAll('.site-nav__link [data-decode]')
+    .forEach((el, i) => scramble(el, { duration: 450, delay: 150 + i * 70 }));
+
+  const heroTitle = document.querySelector('.hero__title [data-decode]');
+  if (heroTitle) scramble(heroTitle, { duration: 900, delay: 350 });
 
   // 2. Projects grid — the single orchestrated ScrollTrigger reveal
   const cards = gsap.utils.toArray('.projects-grid .reveal');

@@ -1,7 +1,8 @@
-/* Fonts — self-hosted variable fonts (latin subset, font-display: swap) */
-import '@fontsource-variable/space-grotesk';
-import '@fontsource-variable/inter';
-import '@fontsource-variable/jetbrains-mono';
+/* Fonts — self-hosted, subset, font-display: swap. Both SIL OFL 1.1. */
+import '@fontsource/chakra-petch/400.css';
+import '@fontsource/chakra-petch/500.css';
+import '@fontsource/chakra-petch/700.css';
+import '@fontsource/fragment-mono/400.css';
 
 /* Design system */
 import '../Styles/tokens.css';

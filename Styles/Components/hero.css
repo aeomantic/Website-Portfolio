@@ -1,5 +1,6 @@
-/* ─── Hero — oversized type, entrance handled by GSAP ─── */
+/* ─── DOSSIER hero — exhibit 00 ─── */
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,8 +8,7 @@
   padding-block: var(--space-8);
 }
 
-/* Initial hidden state for the GSAP entrance — only when JS is on
-   and the user allows motion */
+/* Initial hidden state for the entrance — JS on + motion allowed only */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-hero] {
     opacity: 0;
@@ -16,25 +16,104 @@
   }
 }
 
+/* Ghost exhibit numeral */
+.hero__numeral {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-numeral);
+  line-height: 1;
+  color: var(--numeral);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__clearance {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
 .hero__greeting {
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
-  text-transform: none;
-  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.hero__field {
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
 }
 
 .hero__title {
   font-size: var(--text-hero);
   font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
   margin-block: var(--space-2) var(--space-3);
-  max-width: 16ch;
+  max-width: 14ch;
 }
 
+.hero__title-fx {
+  display: inline-block;
+}
+
+/* Single-frame glitch, fires once after the decode settles */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__title-fx {
+    animation: hero-glitch 140ms steps(2, jump-none) 1.6s 1;
+  }
+}
+
+@keyframes hero-glitch {
+  0%,
+  100% {
+    transform: none;
+    clip-path: none;
+  }
+  50% {
+    transform: translateX(-7px);
+    clip-path: inset(18% 0 34% 0);
+  }
+}
+
+/* Framed abstract — corner brackets, HUD style */
 .hero__description {
-  font-size: var(--text-lg);
+  position: relative;
+  font-size: var(--text-body);
+  line-height: 1.7;
   color: var(--text-muted);
-  max-width: 38rem;
+  max-width: 34rem;
+  padding: var(--space-2) var(--space-3);
+}
+
+.hero__description::before,
+.hero__description::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.hero__description::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid var(--border-strong);
+  border-left: 1px solid var(--border-strong);
+}
+
+.hero__description::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid var(--border-strong);
+  border-right: 1px solid var(--border-strong);
 }
 
 .hero__ctas {

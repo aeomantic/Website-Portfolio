@@ -26,22 +26,41 @@ const icons = {
 
 const themeButton = (cls) => `
   <button class="${cls} theme-toggle" type="button" aria-label="Toggle colour theme">
-    ${icons.sun}${icons.moon}
+    <span class="tt-live" aria-hidden="true">[ LIVE ]</span>
+    <span class="tt-paper" aria-hidden="true">[ PAPER ]</span>
   </button>`;
 
+/* Decorative telemetry strip — pure fiction, hidden from AT */
+const TICKER =
+  '0x4D41 :: FEED LIVE :: INTEGRITY OK :: SGP 1.3521°N 103.8198°E :: NO ACTIVE THREATS :: CLEARANCE PUBLIC :: ';
+
 export function renderNav(c) {
-  const links = (cls) =>
-    c.nav.map((l) => `<li><a class="${cls}" href="${l.href}">${esc(l.label)}</a></li>`).join('\n');
+  const links = (cls, decorate = false) =>
+    c.nav
+      .map(
+        (l) =>
+          `<li><a class="${cls}" href="${l.href}">${
+            decorate
+              ? `<span class="sr-only">${esc(l.label)}</span><span aria-hidden="true" data-decode>${esc(l.label)}</span>`
+              : esc(l.label)
+          }</a></li>`
+      )
+      .join('\n');
 
   return `
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
+    <div class="statusbar" aria-hidden="true">
+      <span class="statusbar__item">SYS//PORTFOLIO_V2</span>
+      <span class="statusbar__ticker"><span class="statusbar__track">${TICKER.repeat(2)}</span></span>
+      <span class="statusbar__item statusbar__item--right">UPLINK: STABLE</span>
+    </div>
     <nav class="site-nav container" aria-label="Primary">
       <a class="site-nav__brand" href="#top" aria-label="MA — ${esc(c.site.name)}, back to top">
         <span class="site-nav__brand-mark" aria-hidden="true">MA</span>
       </a>
       <ul class="site-nav__menu">
-        ${links('site-nav__link')}
+        ${links('site-nav__link', true)}
       </ul>
       <div class="site-nav__actions">
         ${themeButton('site-nav__theme')}
@@ -72,8 +91,10 @@ export function renderHero(c) {
 
   return `
   <section class="hero container" id="top">
-    <p class="hero__greeting eyebrow" data-hero>${esc(c.hero.greeting)}</p>
-    <h1 class="hero__title" data-hero>${esc(c.hero.title)}</h1>
+    <span class="hero__numeral" aria-hidden="true">00</span>
+    <p class="hero__clearance" aria-hidden="true" data-hero>// PERSONNEL FILE — CLEARANCE: PUBLIC</p>
+    <p class="hero__greeting" data-hero><span class="hero__field" aria-hidden="true">SUBJECT&nbsp;//&nbsp;</span>${esc(c.hero.greeting)}</p>
+    <h1 class="hero__title" data-hero><span class="sr-only">${esc(c.hero.title)}</span><span class="hero__title-fx" aria-hidden="true" data-decode>${esc(c.hero.title)}</span></h1>
     <p class="hero__description" data-hero>${esc(c.hero.description)}</p>
     <div class="hero__ctas" data-hero>${ctas}</div>
   </section>`;

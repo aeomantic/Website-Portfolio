@@ -1,38 +1,43 @@
 /* ─────────────────────────────────────────────
-   Design tokens — dark glassmorphism (default)
+   DOSSIER design tokens
+   Dark (default) = live SOC feed · Light = declassified paper
+   Tweak the theme here — component CSS only consumes tokens.
    ───────────────────────────────────────────── */
 :root {
-  /* Color — near-black base, frosted surfaces, indigo accent */
-  --bg: #0a0a0a;
-  --bg-raised: #111113;
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-hover: rgba(255, 255, 255, 0.07);
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --text: #f4f4f5;
-  --text-muted: #b0b0b8;
-  --text-faint: #8b8b95; /* ≥4.5:1 on raised surfaces */
-  --accent: #818cf8;
-  --accent-strong: #4f46e5;
-  --accent-soft: rgba(129, 140, 248, 0.13);
-  --accent-glow: rgba(99, 102, 241, 0.22);
+  /* Color — charcoal ground, warm paper-white ink, signal red */
+  --bg: #0c0e10;
+  --bg-raised: #12151a;
+  --surface: rgba(233, 231, 225, 0.03);
+  --surface-hover: rgba(233, 231, 225, 0.06);
+  --border: rgba(233, 231, 225, 0.16);
+  --border-strong: rgba(233, 231, 225, 0.34);
+  --text: #e9e7e1;
+  --text-muted: #a9adb4;
+  --text-faint: #8b8f96;
+  --accent: #ff5449; /* signal red — ≥4.5:1 on bg and bg-raised */
+  --accent-strong: #d93a30;
+  --accent-soft: rgba(255, 84, 73, 0.12);
+  --accent-glow: rgba(255, 84, 73, 0.14);
+  --amber: #ffb454; /* ticker / secondary telemetry */
   --on-accent: #ffffff;
+  --numeral: rgba(233, 231, 225, 0.07); /* ghost exhibit numerals */
 
   /* Typography */
-  --font-heading: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+  --font-heading: 'Chakra Petch', system-ui, sans-serif;
+  --font-body: 'Fragment Mono', ui-monospace, monospace;
+  --font-mono: 'Fragment Mono', ui-monospace, monospace;
 
-  --text-hero: clamp(2.75rem, 8vw + 0.5rem, 6rem);
-  --text-h2: clamp(1.9rem, 3.5vw + 0.5rem, 3rem);
-  --text-h3: clamp(1.25rem, 1.5vw + 0.75rem, 1.5rem);
-  --text-lg: 1.125rem;
-  --text-body: 1rem;
+  --text-hero: clamp(2.5rem, 7.5vw + 0.5rem, 5.5rem);
+  --text-h2: clamp(1.75rem, 3.5vw + 0.5rem, 2.75rem);
+  --text-h3: clamp(1.2rem, 1.5vw + 0.7rem, 1.45rem);
+  --text-lg: 1.0625rem;
+  --text-body: 0.9375rem;
   --text-sm: 0.875rem;
   --text-xs: 0.8125rem;
   --text-2xs: 0.75rem;
+  --text-numeral: clamp(7rem, 22vw, 18rem);
 
-  /* Spacing — 8pt scale */
+  /* Spacing — 8pt scale (unchanged) */
   --space-05: 0.25rem;
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -45,32 +50,35 @@
   --space-12: 6rem;
   --space-16: 8rem;
 
-  /* Shape & effects */
-  --radius-sm: 10px;
-  --radius: 16px;
-  --radius-lg: 24px;
-  --blur: 16px;
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35);
-  --shadow-accent: 0 8px 40px -12px var(--accent-glow);
+  /* Shape & effects — hard-edged, no glass */
+  --radius-sm: 2px;
+  --radius: 2px;
+  --radius-lg: 3px;
+  --blur: 0px;
+  --shadow-card: 0 2px 24px rgba(0, 0, 0, 0.4);
+  --shadow-accent: 0 0 32px -8px var(--accent-glow);
 
-  --nav-height: 4.5rem;
+  --statusbar-h: 1.75rem;
+  --nav-height: 6.25rem; /* statusbar + nav row; anchors offset against this */
 }
 
-/* ─── Light theme ─── */
+/* ─── Light theme: declassified paper (manila, ink, stamp red) ─── */
 [data-theme='light'] {
-  --bg: #f6f7f9;
-  --bg-raised: #ffffff;
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-hover: rgba(255, 255, 255, 0.95);
-  --border: rgba(17, 17, 20, 0.09);
-  --border-strong: rgba(17, 17, 20, 0.2);
-  --text: #17171b;
-  --text-muted: #4d4d56;
-  --text-faint: #686871; /* ≥4.5:1 on white cards */
-  --accent: #4f46e5;
-  --accent-strong: #4338ca;
-  --accent-soft: rgba(79, 70, 229, 0.09);
-  --accent-glow: rgba(79, 70, 229, 0.16);
+  --bg: #ece7db;
+  --bg-raised: #f4f0e6;
+  --surface: rgba(28, 28, 25, 0.03);
+  --surface-hover: rgba(28, 28, 25, 0.06);
+  --border: rgba(28, 28, 25, 0.22);
+  --border-strong: rgba(28, 28, 25, 0.45);
+  --text: #1c1c19;
+  --text-muted: #4c4b45;
+  --text-faint: #66655d;
+  --accent: #b3261e; /* stamp red */
+  --accent-strong: #9a1f18;
+  --accent-soft: rgba(179, 38, 30, 0.09);
+  --accent-glow: rgba(179, 38, 30, 0.1);
+  --amber: #8a5a00;
   --on-accent: #ffffff;
-  --shadow-card: 0 8px 32px rgba(17, 17, 20, 0.08);
+  --numeral: rgba(28, 28, 25, 0.08);
+  --shadow-card: 0 2px 16px rgba(28, 28, 25, 0.1);
 }
