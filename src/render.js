@@ -30,9 +30,12 @@ const themeButton = (cls) => `
     <span class="tt-paper" aria-hidden="true">[ PAPER ]</span>
   </button>`;
 
-/* Decorative telemetry strip — pure fiction, hidden from AT */
+/* Decorative telemetry strip — pure fiction, hidden from AT.
+   Rendered as two identical copies so the CSS marquee's translateX(-50%)
+   loop point is exactly one copy wide (each copy pads its own gap). */
 const TICKER =
-  '0x4D41 :: FEED LIVE :: INTEGRITY OK :: SGP 1.3521°N 103.8198°E :: NO ACTIVE THREATS :: CLEARANCE PUBLIC :: ';
+  '0x4D41 :: FEED LIVE :: INTEGRITY OK :: SGP 1.3521°N 103.8198°E :: NO ACTIVE THREATS :: CLEARANCE PUBLIC ::';
+const TICKER_COPY = `<span class="statusbar__copy">${TICKER}</span>`;
 
 export function renderNav(c) {
   const links = (cls, decorate = false) =>
@@ -52,7 +55,7 @@ export function renderNav(c) {
   <header class="site-header">
     <div class="statusbar" aria-hidden="true">
       <span class="statusbar__item">SYS//PORTFOLIO_V2</span>
-      <span class="statusbar__ticker"><span class="statusbar__track">${TICKER.repeat(2)}</span></span>
+      <span class="statusbar__ticker"><span class="statusbar__track">${TICKER_COPY.repeat(2)}</span></span>
       <span class="statusbar__item statusbar__item--right">UPLINK: STABLE</span>
     </div>
     <nav class="site-nav container" aria-label="Primary">
@@ -122,8 +125,8 @@ export function renderProjects(c) {
       <div class="project-card__actions">
         <button class="btn btn--soft" type="button" data-dialog="dialog-${p.id}">Case study</button>
         <span class="project-card__links">
-          <a class="icon-link" href="${p.github}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} on GitHub">${icons.github}</a>
-          <a class="icon-link" href="${p.demo}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} live demo">${icons.external}</a>
+          ${p.github ? `<a class="icon-link" href="${p.github}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} on GitHub">${icons.github}</a>` : ''}
+          ${p.demo ? `<a class="icon-link" href="${p.demo}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} live demo">${icons.external}</a>` : ''}
         </span>
       </div>
     </article>`
@@ -161,8 +164,8 @@ export function renderDialogs(c) {
         ${p.caseStudy.highlights.map((h) => `<li>${esc(h)}</li>`).join('\n')}
       </ul>
       <div class="case-study__actions">
-        <a class="btn btn--primary" href="${p.demo}" target="_blank" rel="noopener noreferrer">Live demo ${icons.external}</a>
-        <a class="btn btn--ghost" href="${p.github}" target="_blank" rel="noopener noreferrer">${icons.github} View on GitHub</a>
+        ${p.demo ? `<a class="btn btn--primary" href="${p.demo}" target="_blank" rel="noopener noreferrer">Live demo ${icons.external}</a>` : ''}
+        ${p.github ? `<a class="btn btn--ghost" href="${p.github}" target="_blank" rel="noopener noreferrer">${icons.github} View on GitHub</a>` : ''}
       </div>
     </div>
   </dialog>`

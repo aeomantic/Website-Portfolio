@@ -22,10 +22,11 @@
   --on-accent: #ffffff;
   --numeral: rgba(233, 231, 225, 0.07); /* ghost exhibit numerals */
 
-  /* Typography */
-  --font-heading: 'Chakra Petch', system-ui, sans-serif;
-  --font-body: 'Fragment Mono', ui-monospace, monospace;
-  --font-mono: 'Fragment Mono', ui-monospace, monospace;
+  /* Typography — one mono family site-wide; hierarchy comes from
+     weight + letter-spacing, never from switching typefaces */
+  --font-heading: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-body: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
   --text-hero: clamp(2.5rem, 7.5vw + 0.5rem, 5.5rem);
   --text-h2: clamp(1.75rem, 3.5vw + 0.5rem, 2.75rem);

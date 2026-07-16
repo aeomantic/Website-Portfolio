@@ -22,13 +22,15 @@
   border-bottom: 1px solid var(--border);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--text-faint);
   overflow: hidden;
 }
 
+/* Fixed anchors outrank the crawl: weight, not size */
 .statusbar__item {
   flex-shrink: 0;
+  font-weight: 500;
 }
 
 .statusbar__item--right {
@@ -44,14 +46,24 @@
 }
 
 .statusbar__track {
-  display: inline-block;
-  padding-right: 2rem;
+  display: inline-flex;
 }
 
-/* Ambient loop #1 — slow telemetry crawl (killed by reduced-motion) */
+/* Each copy ends 1ch short of its trailing "::", so the -50% loop point
+   reproduces the internal " :: " rhythm exactly — no visible seam */
+.statusbar__copy {
+  padding-right: 1ch;
+}
+
+/* Ambient loop #1 — telemetry crawl; hover the bar to pause and read.
+   Gated to no-preference: reduced-motion users get a static strip. */
 @media (prefers-reduced-motion: no-preference) {
   .statusbar__track {
-    animation: ticker-crawl 80s linear infinite;
+    animation: ticker-crawl 30s linear infinite;
+  }
+
+  .statusbar:hover .statusbar__track {
+    animation-play-state: paused;
   }
 }
 
@@ -82,6 +94,7 @@
   height: 40px;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
+  font-weight: 700;
   color: var(--accent);
   border: 1px solid var(--border-strong);
   transition: border-color 0.25s ease, background-color 0.25s ease;
@@ -108,6 +121,7 @@
 .site-nav__link {
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text-muted);
@@ -148,6 +162,7 @@
   padding-inline: var(--space-1);
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
+  font-weight: 500;
   letter-spacing: 0.1em;
   color: var(--amber);
   transition: color 0.25s ease;
@@ -230,6 +245,7 @@
   gap: var(--space-2);
   font-family: var(--font-heading);
   font-size: var(--text-h3);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text);

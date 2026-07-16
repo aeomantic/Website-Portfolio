@@ -9,7 +9,7 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { scramble } from './decode.js';
+import { scramble, binaryHover } from './decode.js';
 
 export default function initMotion() {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -61,7 +61,19 @@ export default function initMotion() {
     .forEach((el, i) => scramble(el, { duration: 450, delay: 150 + i * 70 }));
 
   const heroTitle = document.querySelector('.hero__title [data-decode]');
-  if (heroTitle) scramble(heroTitle, { duration: 900, delay: 350 });
+  if (heroTitle) {
+    scramble(heroTitle, { duration: 900, delay: 350 });
+
+    // 1c. Binary redaction on hover: the title holds as raw bits for the
+    // whole hover and only resolves on mouseleave. Hover-capable pointers
+    // only — on touch, a tap would leave the title stuck scrambled.
+    if (window.matchMedia('(hover: hover)').matches) {
+      const fx = binaryHover(heroTitle);
+      const title = heroTitle.closest('.hero__title');
+      title.addEventListener('mouseenter', fx.start);
+      title.addEventListener('mouseleave', fx.stop);
+    }
+  }
 
   // 2. Projects grid — the single orchestrated ScrollTrigger reveal
   const cards = gsap.utils.toArray('.projects-grid .reveal');

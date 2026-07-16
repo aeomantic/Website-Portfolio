@@ -1,8 +1,7 @@
-/* Fonts — self-hosted, subset, font-display: swap. Both SIL OFL 1.1. */
-import '@fontsource/chakra-petch/400.css';
-import '@fontsource/chakra-petch/500.css';
-import '@fontsource/chakra-petch/700.css';
-import '@fontsource/fragment-mono/400.css';
+/* Font — JetBrains Mono variable (wght 100–800, normal + italic),
+   self-hosted, subset, font-display: swap. SIL OFL 1.1. */
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/jetbrains-mono/wght-italic.css';
 
 /* Design system */
 import '../Styles/tokens.css';

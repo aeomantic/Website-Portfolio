@@ -34,6 +34,7 @@
 .hero__clearance {
   font-family: var(--font-mono);
   font-size: var(--text-2xs);
+  font-weight: 500;
   letter-spacing: 0.14em;
   color: var(--accent);
   margin-bottom: var(--space-3);
@@ -53,15 +54,21 @@
 .hero__title {
   font-size: var(--text-hero);
   font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: 0.005em;
+  line-height: 1.1; /* mono display needs a touch more air than 1.04 */
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-block: var(--space-2) var(--space-3);
-  max-width: 14ch;
+  max-width: 16ch; /* JetBrains Mono ch — balances to "AI & FULL STACK / DEVELOPER." */
 }
 
 .hero__title-fx {
   display: inline-block;
+}
+
+/* Binary redaction (hover, via decode.js) — scrambled bits take the accent;
+   untouched punctuation keeps ink colour, and mono advance keeps width stable */
+.hero__title-fx .fx-bit {
+  color: var(--accent);
 }
 
 /* Single-frame glitch, fires once after the decode settles */

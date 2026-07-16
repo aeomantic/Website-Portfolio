@@ -20,7 +20,7 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.7; /* mono body copy needs more leading than a proportional face */
   background-color: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -31,8 +31,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: 0; /* mono sets its own rhythm — negative tracking fights the grid */
   text-wrap: balance;
 }
 
@@ -108,11 +108,12 @@ section[id],
   color: var(--text-muted);
 }
 
-/* Mono eyebrow label — small labels only */
+/* Mono eyebrow label — small labels rank by weight + tracking, not size */
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -184,7 +185,7 @@ section[id],
   min-height: 44px;
   padding: 0.6em 1.5em;
   font-family: var(--font-mono);
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--text-2xs);
   text-transform: uppercase;
   letter-spacing: 0.14em;
