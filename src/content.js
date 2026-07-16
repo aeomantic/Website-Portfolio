@@ -8,10 +8,10 @@ export const site = {
   name: 'Mohamed Ameer',
   title: 'Mohamed Ameer | Portfolio',
   description:
-    'Computer Science student at the University of Wollongong specialising in AI, with a background in fintech and experience in full stack development and backend engineering.',
-  email: 'mohamedameer0025@gmail.com',
+    'Computer Science student at the University of Wollongong specialising in AI, Big Data & Cybersecurity, with a background in fintech and experience in full stack development and backend engineering.',
+  email: 'mohamedameer0025@proton.me',
   github: 'https://github.com/aeomantic',
-  resume: '/Intern_Resume.pdf',
+  resume: '/Mohamed_Ameer_Resume.pdf',
   ogImage: '/pengu.jpeg',
 };
 
@@ -27,10 +27,10 @@ export const hero = {
   greeting: "Hi, I'm Ameer 👋",
   title: 'AI & FULL STACK DEVELOPER.',
   description:
-    'Computer Science student at the University of Wollongong specialising in AI, with a background in fintech and experience in full stack development and backend engineering.',
+    'Computer Science student at the University of Wollongong specialising in AI, Big Data & Cybersecurity, with a background in fintech and experience in full stack development and backend engineering.',
   ctas: [
     { label: 'View Projects', href: '#projects', variant: 'primary' },
-    { label: 'Resume', href: '/Intern_Resume.pdf', variant: 'ghost', external: true },
+    { label: 'Resume', href: '/Mohamed_Ameer_Resume.pdf', variant: 'ghost', external: true },
   ],
 };
 
@@ -39,6 +39,29 @@ export const projects = {
   title: 'Projects',
   description: 'AI applications and tools built at hackathons.',
   items: [
+    {
+      id: 'claimreview',
+      tag: 'HackerRank Orchestrate 2026',
+      name: 'Self-Verifying Claim Review Pipeline',
+      summary:
+        "Placed #43 of 1,773 entrants (top 2.4%) in a 24-hour solo AI engineering hackathon. A vision-LLM pipeline that checks whether submitted photos actually support an insurance claimant's stated damage — and re-examines its own verdicts before trusting them.",
+      chips: ['Python', 'GPT-5.4 Vision', 'Pydantic', 'Self-consistency'],
+      caseStudy: {
+        overview:
+          "Built solo in 24 hours for HackerRank Orchestrate 2026, placing #43 of 1,773 entrants (top 2.4%). The system reviews damage claims across cars, laptops, and packages: given a claim conversation, submitted images, user history, and minimum evidence requirements, it decides whether the photos support the claim, contradict it, or don't provide enough information.",
+        approach:
+          'A GPT-5.4-mini vision pass produces a strict Pydantic-schema assessment with retry and backoff. Borderline verdicts trigger a self-consistency re-pass, and genuine disagreements escalate to full GPT-5.4 as a tie-break — while low-confidence cases are routed to human review instead of guessed. A deterministic mock client keeps the whole harness runnable offline, with bounded concurrency to respect API rate limits.',
+        tech: ['Python', 'OpenAI Vision API', 'GPT-5.4 / 5.4-mini', 'Pydantic', 'ThreadPoolExecutor'],
+        highlights: [
+          'Placed #43 of 1,773 entrants (top 2.4%) — 24-hour solo build',
+          'Verifies photo evidence against stated damage across cars, laptops, and packages',
+          'Self-verification: borderline cases re-checked for consistency, disagreements escalated to a stronger model',
+          'Uncertain claims escalate to human review instead of guessing',
+          'Strict Pydantic-schema LLM outputs with retry, backoff, and a hard fallback path',
+        ],
+      },
+      github: 'https://github.com/aeomantic/hackerrank-orchestrate-june26',
+    },
     {
       id: 'safewatch',
       tag: 'StraightUp Hackathon 2026',
@@ -50,13 +73,13 @@ export const projects = {
         overview:
           'SafeWatch is an AI-powered community crime intelligence platform built at the StraightUp Hackathon 2026. A LangGraph multi-agent pipeline (Crawler → Cleaner → Classifier → Decider) with inter-agent feedback loops processes noisy Reddit posts and converts them into verified Singapore crime incidents with no human in the loop.',
         approach:
-          'The backend uses a normalised PostgreSQL schema with pgvector IVFFlat indexes, RLS policies, and an optimistic row-locking incident queue enabling race-condition-free distributed agent processing. A real-time Next.js dashboard with React-Leaflet map clustering and Supabase Realtime surfaces community-reported incidents by severity.',
+          'The backend is a normalised 7-table PostgreSQL schema on Supabase, exposed to the frontend through a single unified read view. A Python data-access layer uses unique-key upserts to prevent duplicate records, plus a row-locking job queue so no two agents process the same record simultaneously. The React/TypeScript dashboard receives new incidents over Supabase real-time subscriptions, pushing them onto a live React-Leaflet map without page refreshes.',
         tech: ['Python', 'FastAPI', 'LangGraph', 'GPT-4o-mini', 'Supabase', 'Next.js', 'pgvector'],
         highlights: [
           'LangGraph multi-agent pipeline (Crawler → Cleaner → Classifier → Decider) with inter-agent feedback loops',
-          'Normalised PostgreSQL schema with pgvector IVFFlat indexes and RLS policies',
-          'Optimistic row-locking incident queue enabling race-condition-free distributed processing',
-          'Real-time React-Leaflet map with severity colour coding and Supabase Realtime updates',
+          'Normalised 7-table PostgreSQL schema with pgvector IVFFlat indexes, RLS policies, and a single unified read view',
+          'Unique-key upserts and a row-locking job queue for race-condition-free distributed agent processing',
+          'Live React-Leaflet map with severity colour coding, updated via Supabase real-time subscriptions',
         ],
       },
       github: 'https://github.com/Vedha-Krishna/SafeWatch',
@@ -79,7 +102,7 @@ export const projects = {
           'Awarded Design Excellence Award at SIM IT Club ITCamp Project Showcase (Apr 2026)',
           'Centralised Supabase data layer in TypeScript covering 13+ database tables',
           'Gamification pipeline with configurable cooldown rules across 100 progression levels',
-          'Real-time session tracking and streak system across 6 feature modules',
+          'Real-time session tracking and streaks, with consistent DbResult error handling across 6 independent feature modules',
           'AI chatbot powered by GPT-4o-mini',
         ],
       },
@@ -114,20 +137,20 @@ export const projects = {
       tag: 'HackoMania 2026',
       name: 'SureBO',
       summary:
-        "AI-powered misinformation detector covering Singapore's four official languages. A RAG pipeline draws from 20+ verified government and news sources with WhatsApp voice note support.",
-      chips: ['Next.js', 'GPT-4o', 'LangChain', 'Supabase'],
+        "AI-powered misinformation detector covering Singapore's four official languages. A LangChain pipeline grounds Qwen 2.5-VL-72B with three parallel live Tavily web searches and streams structured verdicts in real time.",
+      chips: ['Next.js', 'LangChain', 'Qwen 2.5-VL-72B', 'Tavily'],
       caseStudy: {
         overview:
-          "An AI-powered misinformation detector built for HackoMania 2026, covering Singapore's four official languages (English, Mandarin, Malay, Tamil). Submitted text and URLs are processed through a RAG pipeline that draws from 20+ verified government and news sources.",
+          "An AI-powered misinformation detector built for HackoMania 2026, covering Singapore's four official languages (English, Malay, Mandarin, Tamil). The core fact-checking pipeline is engineered in LangChain — chaining prompt → LLM (Qwen 2.5-VL-72B) → parser — with a RAG step that runs three parallel live web searches through Tavily as model context.",
         approach:
-          'WhatsApp voice note support is handled by OpenAI Whisper, with Helsinki-NLP powering multilingual translation. ClickHouse and Supabase form the data layer, and Langfuse provides end-to-end pipeline observability.',
-        tech: ['Next.js', 'React', 'LangChain', 'GPT-4o', 'OpenAI Whisper', 'ClickHouse', 'Supabase', 'Langfuse', 'Helsinki-NLP'],
+          "The end-to-end orchestration is a single flow: retrieve evidence → call the model → validate output → return a structured verdict. Responses stream live over a Server-Sent Events endpoint with built-in error handling and retry logic, and a Zod schema with graceful fallback enforces reliable LLM output. Multilingual prompts return a consistent result object in the user's language, and every input type — voice notes via OpenAI Whisper, plus text extracted from YouTube, websites, PDFs, DOCX, and images — is normalised into the same pipeline, with ClickHouse and Supabase as the data layer and Langfuse for observability.",
+        tech: ['Next.js', 'React', 'LangChain', 'Qwen 2.5-VL-72B', 'Tavily', 'OpenAI Whisper', 'Zod', 'ClickHouse', 'Supabase', 'Langfuse', 'Helsinki-NLP'],
         highlights: [
-          '20+ verified government and news sources in the RAG pipeline',
-          'Multilingual fact-checking across 4 official languages',
-          'WhatsApp voice note transcription via OpenAI Whisper',
-          'Full pipeline observability with Langfuse',
-          'Real-time source citation with every verdict',
+          'LangChain fact-checking pipeline grounded by 3 parallel live Tavily web searches',
+          'Real-time verdict streaming via Server-Sent Events with error handling and retry logic',
+          'Zod-enforced structured verdicts with graceful fallback',
+          'Multilingual fact-checking across 4 official languages with consistent result objects',
+          'Unified ingestion: voice (Whisper), YouTube, websites, PDFs, DOCX, and images',
         ],
       },
       github: 'https://github.com/AlexBearBear0319/surebo-check',
@@ -139,13 +162,13 @@ export const projects = {
 export const work = {
   label: 'Experience',
   title: 'Work',
-  description: 'Roles and contributions across internships and student organisations.',
+  description: 'Roles and contributions across internships, national service, and student organisations.',
   items: [
     {
       org: 'SIM IT Club',
-      role: 'Subcommittee Member',
+      role: 'Subcommittee Member, General Dept',
       period: 'Oct 2025 — Present',
-      body: 'Facilitated the SIMITC GitHub Workshop Series from October 2025, guiding groups of up to 5 participants through hands-on Git and GitHub sessions. Currently developing the backend for a campus app with real-time ETA tracking for study spot discovery.',
+      body: 'Engineering the Supabase and PostgreSQL backend for ITC-SIMplify, a student-facing campus platform in active development and deployment for SIM students. Also help facilitate hands-on Git & GitHub workshops for cohorts of up to 5 participants, accelerating their adoption of version-control workflows.',
     },
     {
       org: 'Singapore Armed Forces',
@@ -157,13 +180,13 @@ export const work = {
       org: 'FirstCom Solutions',
       role: 'Project Manager Intern',
       period: 'Aug 2022 — Jan 2023',
-      body: 'Contributed to 2+ e-commerce projects from August 2022 to January 2023, identifying bottlenecks that cut delivery timelines by 20%. Managed stakeholder communication and aligned client expectations, tracking progress via Trello and Jira.',
+      body: 'Delivered 2 e-commerce web projects on schedule by coordinating cross-functional tasks and resolving bottlenecks, cutting overall delivery timelines by 20%. Managed end-to-end project tracking with Jira and Trello, maintaining stakeholder alignment across client and internal teams through the full delivery cycle.',
     },
     {
       org: 'FirstCom Solutions',
       role: 'Web Designer Intern',
       period: 'Jul — Aug 2022',
-      body: 'Designed and built responsive websites with HTML and CSS from July to August 2022, using Wix to deliver client-ready solutions. Collaborated with the design team on UI/UX improvements across multiple client sites.',
+      body: 'Designed and shipped responsive client websites using HTML, CSS, and Wix, collaborating with the design team to implement UI/UX improvements across multiple live projects.',
     },
   ],
 };
@@ -181,9 +204,9 @@ export const skills = {
     {
       name: 'Languages',
       items: [
-        { name: 'Python', context: 'SafeWatch · MSIG Travel Assistant' },
+        { name: 'Python', context: 'SafeWatch · Claim Review Pipeline' },
+        { name: 'TypeScript', context: 'ITC-SIMplify · SureBO' },
         { name: 'JavaScript', context: 'Portfolio · web internships' },
-        { name: 'TypeScript', context: 'ITC-SIMplify' },
         { name: 'Java', context: 'Coursework' },
         { name: 'SQL', context: 'SafeWatch · ITC-SIMplify' },
         { name: 'HTML/CSS', context: 'FirstCom Solutions · portfolio' },
@@ -193,19 +216,24 @@ export const skills = {
       name: 'AI & LLM Engineering',
       items: [
         { name: 'LangGraph', context: 'SafeWatch multi-agent pipeline' },
-        { name: 'LangChain', context: 'MSIG Travel Assistant · SureBO' },
-        { name: 'GPT-4o / 4o-mini', context: 'SafeWatch · ITC-SIMplify · SureBO' },
+        { name: 'LangChain', context: 'SureBO · MSIG Travel Assistant' },
+        { name: 'RAG pipelines', context: 'SureBO — 3 parallel Tavily live searches' },
+        { name: 'Prompt engineering', context: 'IBM certificate · SureBO multilingual prompts' },
+        { name: 'GPT-5.4 Vision', context: 'Claim Review Pipeline' },
+        { name: 'GPT-4o / 4o-mini', context: 'SafeWatch · ITC-SIMplify' },
+        { name: 'Qwen 2.5-VL-72B', context: 'SureBO fact-checking' },
         { name: 'Groq Llama 3', context: 'MSIG Travel Assistant' },
         { name: 'OpenAI Whisper', context: 'SureBO voice notes' },
-        { name: 'RAG pipelines', context: 'SureBO · 20+ verified sources' },
+        { name: 'Helsinki-NLP', context: 'SureBO translation' },
         { name: 'Langfuse', context: 'SureBO observability' },
       ],
     },
     {
       name: 'Frontend',
       items: [
-        { name: 'Next.js', context: 'SafeWatch · ITC-SIMplify · SureBO' },
+        { name: 'Next.js 15', context: 'SafeWatch · ITC-SIMplify · SureBO' },
         { name: 'React', context: 'SureBO · React-Leaflet in SafeWatch' },
+        { name: 'Tailwind CSS', context: 'Hackathon frontends' },
         { name: 'Streamlit', context: 'MSIG Travel Assistant' },
       ],
     },
@@ -213,19 +241,24 @@ export const skills = {
       name: 'Backend & Data',
       items: [
         { name: 'FastAPI', context: 'SafeWatch · MSIG Travel Assistant' },
-        { name: 'Supabase', context: 'SafeWatch · ITC-SIMplify · SureBO' },
-        { name: 'PostgreSQL', context: 'SafeWatch · ITC-SIMplify' },
+        { name: 'Supabase', context: 'SafeWatch · ITC-SIMplify RPC · SureBO' },
+        { name: 'PostgreSQL', context: 'SafeWatch 7-table schema · ITC-SIMplify' },
         { name: 'pgvector', context: 'SafeWatch IVFFlat indexes' },
+        { name: 'REST APIs', context: 'FastAPI backends · SureBO SSE streaming' },
         { name: 'ClickHouse', context: 'SureBO data layer' },
+        { name: 'Pydantic · Zod', context: 'Claim Review · SureBO structured outputs' },
         { name: 'PyMuPDF', context: 'MSIG document ingestion' },
       ],
     },
     {
-      name: 'Tools & Practice',
+      name: 'Tools & Certificates',
       items: [
         { name: 'Git & GitHub', context: 'SIMITC workshop facilitator' },
+        { name: 'Microsoft Azure', context: 'Cloud & DevOps' },
         { name: 'Trello · Jira', context: 'FirstCom project management' },
         { name: 'Wix', context: 'FirstCom client sites' },
+        { name: 'IBM GenAI: Prompt Engineering', context: 'Certificate · Mar 2026' },
+        { name: 'Huawei Cloud Computing', context: 'Certificate · Nov 2025' },
       ],
     },
   ],
@@ -235,7 +268,7 @@ export const about = {
   label: 'About me',
   title: 'About',
   description:
-    "Hi, I'm Ameer. I study Computer Science at the University of Wollongong, majoring in Artificial Intelligence and Cyber Security. I hold a Diploma in Financial Business Informatics from Temasek Polytechnic. I've built AI-powered applications at hackathons and completed internships in web development and project management.",
+    "Hi, I'm Ameer. I'm pursuing a Bachelor of Computer Science (AI, Big Data & Cybersecurity) at the University of Wollongong, graduating May 2027, and hold a Diploma in Financial Business Informatics from Temasek Polytechnic. I've built AI-powered applications at hackathons — most recently placing #43 of 1,773 (top 2.4%) in a 24-hour solo AI engineering sprint — and completed internships in web development and project management.",
   image: '/pengu.jpeg',
   imageAlt: 'Profile picture',
 };
